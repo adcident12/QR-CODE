@@ -2,6 +2,8 @@ var i = 1;
 // @ts-ignore
 $( document ).ready(function() {
     // @ts-ignore
+    $('#toggle-event').prop('checked', true).change();
+    // @ts-ignore
     let scanner = new Instascan.Scanner(
         {
             video: document.getElementById('preview')
@@ -16,13 +18,28 @@ $( document ).ready(function() {
         }
     });
     // @ts-ignore
-    Instascan.Camera.getCameras().then(cameras =>
-    {
+    Instascan.Camera.getCameras().then(function (cameras) {
+        // @ts-ignore
+        var checkStatus = $('#toggle-event').prop('checked');
         if(cameras.length > 0) {
-            scanner.start(cameras[0]);
+            if(checkStatus == true) {
+                scanner.start(cameras[0]);
+            }
+            // @ts-ignore
+            $('#toggle-event').change(function() {
+                // @ts-ignore
+                var statusChang = $(this).prop('checked');
+                if(statusChang == true) {
+                    scanner.start(cameras[0]);
+                }else if(statusChang == false) {
+                    scanner.start(cameras[1]);
+                }
+            });
         }else {
-            console.error("No existe camera no dispositivo!");
+            console.error('No cameras found.');
         }
+    }).catch(function (e) {
+        // console.error(e);
     });
 });
 

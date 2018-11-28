@@ -7,6 +7,8 @@
     <title>Scan QR CODE</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap Toggle CSS-->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <!-- swal -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Optional JavaScript -->
@@ -14,9 +16,18 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap Toggle JS-->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- Javascript local -->
     <script src="js/instascan.min.js"></script>
     <script src="js/scanner-qrcode.js"></script>
+    <style>
+        .btn-default { 
+            color: #212529; 
+            background-color: #ffffff; 
+            border-color: #fffff;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -29,7 +40,13 @@
             </li>
         </ul>
         <div class="row">
-            <div class="col-sm-12 mt-5"></div>
+             <div class="col-sm-6 mt-5 mb-1">
+                <div class="float-sm-right">
+                    <input id="toggle-event" type="checkbox" checked data-toggle="toggle" data-on="Front" data-off="Back" data-onstyle="success" data-offstyle="danger">
+                    <div id="console-event"></div>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-5 mb-1"></div>
             <div class="col-sm-6"><video id="preview" style="max-width: 100%!important;"></video></div>
             <div class="col-sm-6">
                 <table class="table table-dark">
