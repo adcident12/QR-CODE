@@ -6,7 +6,8 @@ $( document ).ready(function() {
     // @ts-ignore
     let scanner = new Instascan.Scanner(
         {
-            video: document.getElementById('preview')
+            video: document.getElementById('preview'),
+            scanPeriod: 5
         }
     );
     scanner.addListener('scan', function(content) {  //ส่วนนี้สามารถจัดการกับ ข้อมูลที่ได้จาก scan นะครับ
